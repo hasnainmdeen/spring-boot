@@ -17,17 +17,13 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     public EmployeeDAOImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-
-
-
+    
     @Override
     public List<Employee> findAll() {
 
         TypedQuery<Employee> employeeTypedQuery = entityManager.createQuery("FROM Employee", Employee.class);
 
-        List<Employee> theEmployees = employeeTypedQuery.getResultList();
-
-        return theEmployees;
+        return employeeTypedQuery.getResultList();
     }
 
     @Override
@@ -36,7 +32,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     }
 
     @Override
-    public Employee Save(Employee employee) {
+    public Employee save(Employee employee) {
         return entityManager.merge(employee);
     }
 
