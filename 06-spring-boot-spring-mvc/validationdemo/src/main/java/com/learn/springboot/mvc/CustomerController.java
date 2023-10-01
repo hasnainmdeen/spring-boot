@@ -37,6 +37,10 @@ public class CustomerController {
 
         System.out.println("Last Name: |" + theCustomer.getLastName() + "|");
 
+        // to get the prop for custom error message
+        System.out.println("Binding result: " + theBindingResult.toString());
+        System.out.println("\n\n\n\n");
+
         if(theBindingResult.hasErrors()) {
             return "customer-form";
         }
